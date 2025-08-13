@@ -1,0 +1,636 @@
+local anm = 115691765466559
+local a = Instance.new("Animation")
+a.AnimationId = "rbxassetid://" .. anm
+local e = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(a)
+e:Play()
+        local v22793 = game.ReplicatedStorage.Resources.UFW.RB:Clone();
+        v22793:SetPrimaryPartCFrame(CFrame.new(1000000, 1000000, 1000000));
+        v22793.Parent = workspace.Thrown;
+        v22793:ScaleTo(7);
+        local v22794 = v22793.AnimationController:LoadAnimation(game.ReplicatedStorage.Resources.UFW.lastthing);
+        v22794:Play();
+        v22794.TimePosition = 1.4;
+        game.Debris:AddItem(v22793, 3);
+        local l_Part_32 = Instance.new("Part");
+        l_Part_32.Anchored = true;
+        l_Part_32.Transparency = 1;
+        l_Part_32.CanCollide = false;
+        l_Part_32.CanQuery = false;
+        l_Part_32.CanTouch = false;
+        l_Part_32.CFrame = CFrame.new(40000, 40000, 40000);
+        l_Part_32.Parent = workspace.Thrown;
+        game.Debris:AddItem(l_Part_32, 10);
+        local l_l_Part_32_0 = l_Part_32 --[[ copy: 6 -> 179 ]];
+        spawn(function() --[[ Line: 46403 ]]
+            local v22797 = {};
+            for _, v22799 in pairs(game.ReplicatedStorage.Resources.UFW.vfx.Pillar.Preload:GetDescendants()) do
+                if v22799:IsA("Decal") and v22799.Texture ~= "" and not table.find(v22797, v22799.Texture) then
+                    table.insert(v22797, v22799.Texture);
+                end;
+            end;
+            for _, v22801 in pairs(v22797) do
+                local l_Decal_860 = Instance.new("Decal");
+                l_Decal_860.Parent = l_l_Part_32_0;
+                game.Debris:AddItem(l_Decal_860, 3);
+                l_Decal_860.Texture = v22801;
+                task.wait(0.0065);
+            end;
+        end);
+        local l_Accessory_5 = Instance.new("Accessory");
+        l_Accessory_5.Name = "HideUlt";
+        l_Accessory_5:SetAttribute("Force", true);
+        l_Accessory_5.Parent = l_Character_4;
+        game.Debris:AddItem(l_Accessory_5, 28);
+        local l_UFW_2 = game.ReplicatedStorage.Resources.UFW;
+        local l_RunService_1 = game:GetService("RunService");
+        local l_TweenService_58 = game:GetService("TweenService");
+        local _ = game:GetService("KeyframeSequenceProvider");
+        local v22808 = require(l_UFW_2.TekrinnDialogue);
+        local l_LocalPlayer_1 = game.Players.LocalPlayer;
+        local v22810 = {};
+        local v22811 = {
+            [1] = {
+                {
+                    Text = "Because with this... ", 
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 17, 17)), 
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+                    }), 
+                    TextStrokeColor = Color3.new(0, 0, 0), 
+                    Bold = false, 
+                    Italic = false, 
+                    Shake = {
+                        Enabled = false, 
+                        Intensity = 1, 
+                        Lifetime = 2
+                    }, 
+                    TypeSpeed = 0.06
+                }, 
+                {
+                    Text = "IT'S OVER!", 
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 17, 17))
+                    }), 
+                    TextStrokeColor = Color3.new(0, 0, 0), 
+                    Bold = true, 
+                    Italic = true, 
+                    Shake = {
+                        Enabled = true, 
+                        Intensity = 5, 
+                        Lifetime = 1
+                    }, 
+                    TypeSpeed = 0.06
+                }
+            }, 
+            [2] = {
+                {
+                    Text = "KJ's... ", 
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 0, 0)), 
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+                    }), 
+                    TextStrokeColor = Color3.new(0, 0, 0), 
+                    Bold = false, 
+                    Italic = false, 
+                    Shake = {
+                        Enabled = false, 
+                        Intensity = 1, 
+                        Lifetime = 2
+                    }, 
+                    TypeSpeed = 0.07
+                }, 
+                {
+                    Text = "21 SERIES.", 
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
+                        ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 17, 17)), 
+                        ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 127)), 
+                        ColorSequenceKeypoint.new(0.6, Color3.fromRGB(85, 170, 255)), 
+                        ColorSequenceKeypoint.new(0.8, Color3.fromRGB(255, 0, 255)), 
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+                    }), 
+                    TextStrokeColor = Color3.fromRGB(85, 0, 0), 
+                    Bold = true, 
+                    Italic = true, 
+                    Shake = {
+                        Enabled = true, 
+                        Intensity = 4, 
+                        Lifetime = 1
+                    }, 
+                    TypeSpeed = 0.08
+                }
+            }
+        };
+        local function v22822(v22812, v22813, v22814, _) --[[ Line: 46510 ]] --[[ Name: impactFrame ]]
+            local l_v22813_0 = v22813;
+            local v22817 = v22813 - 1;
+            local v22818 = true;
+            local v22821 = shared.loop(function() --[[ Line: 46515 ]]
+                if not v22818 or v22814 < l_v22813_0 then
+                    if v22812:FindFirstChild(v22814) then
+                        v22812[v22814].ImageTransparency = 1;
+                    end;
+                    v22818 = false;
+                    return;
+                else
+                    local l_v22812_FirstChild_0 = v22812:FindFirstChild((tostring(v22817)));
+                    if l_v22812_FirstChild_0 then
+                        l_v22812_FirstChild_0.ImageTransparency = 1;
+                    end;
+                    local l_v22812_FirstChild_1 = v22812:FindFirstChild((tostring(l_v22813_0)));
+                    if l_v22812_FirstChild_1 then
+                        l_v22812_FirstChild_1.ImageTransparency = 0;
+                        l_v22812_FirstChild_1.Size = UDim2.new(1, 0, 1, 0);
+                    end;
+                    v22817 = l_v22813_0;
+                    l_v22813_0 = l_v22813_0 + 1;
+                    return;
+                end;
+            end, 34);
+            task.delay(5, function() --[[ Line: 46539 ]]
+                if v22821 then
+                    v22821();
+                end;
+            end);
+        end;
+        local l_char_57 = game.Players.LocalPlayer.Character;
+        local l_Humanoid_16 = l_char_57:FindFirstChild("Humanoid");
+        local l_RootPart_0 = l_Humanoid_16.RootPart;
+        local v22826 = l_UFW_2.CamRigWithLetterBox:Clone();
+        table.insert(v22810, v22826);
+        local l_RootPart_1 = v22826.RootPart;
+        l_RootPart_1.CFrame = l_RootPart_1.CFrame * CFrame.new(0, 0, 1000000);
+        v22826.Parent = workspace;
+        l_RootPart_1 = v22826.AnimationController.Animator:LoadAnimation(l_UFW_2.Camera);
+        l_RootPart_1:Play();
+        local v22828 = nil;
+        for _, v22830 in pairs(l_Humanoid_16:GetPlayingAnimationTracks()) do
+            if v22830.Animation.AnimationId == "rbxassetid://77727115892579" then
+                v22828 = v22830;
+            end;
+        end;
+        local l_l_RootPart_1_0 = l_RootPart_1 --[[ copy: 21 -> 180 ]];
+        --[[ Line: 46567 ]]
+            l_l_RootPart_1_0:Stop();
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Custom;
+        end);
+        local v22832 = l_UFW_2.ImpactFrames:Clone();
+        v22832.Parent = l_LocalPlayer_1.PlayerGui;
+        for _, v22834 in v22832:GetChildren() do
+            v22834.Size = UDim2.new(0, 0, 0, 1);
+            v22834.ImageTransparency = 0;
+        end;
+        for _, v22836 in l_UFW_2.Flexworks:GetChildren() do
+            local v22837 = v22836:Clone();
+            v22837.Size = UDim2.new(0, 0, 0, 1);
+            v22837.Position = UDim2.new(0, 0, 0, 0);
+            v22837.Parent = v22832;
+            task.delay(2, function() --[[ Line: 46584 ]]
+                v22837:Destroy();
+            end);
+        end;
+        local v22838 = nil;
+        local v22839 = nil;
+        local l_l_UFW_2_0 = l_UFW_2 --[[ copy: 8 -> 181 ]];
+        local l_l_LocalPlayer_1_0 = l_LocalPlayer_1 --[[ copy: 13 -> 182 ]];
+        local l_l_char_57_0 = l_char_57 --[[ copy: 17 -> 183 ]];
+        local l_l_RunService_1_0 = l_RunService_1 --[[ copy: 9 -> 184 ]];
+        local l_v22826_0 = v22826 --[[ copy: 20 -> 185 ]];
+        local l_l_RootPart_0_0 = l_RootPart_0 --[[ copy: 19 -> 186 ]];
+        local l_l_TweenService_58_0 = l_TweenService_58 --[[ copy: 10 -> 187 ]];
+        local l_v22822_0 = v22822 --[[ copy: 16 -> 188 ]];
+        do
+            local l_v22838_0, l_v22839_0 = v22838, v22839;
+            task.spawn(function() --[[ Line: 46589 ]]
+                local v22850 = l_l_UFW_2_0.Flash:Clone();
+                local l_Viewport_0 = v22850.Flashup.Viewport.Viewport;
+                local v22852 = Instance.new("Camera", l_Viewport_0);
+                l_Viewport_0.CurrentCamera = v22852;
+                v22850.Parent = l_l_LocalPlayer_1_0.PlayerGui;
+                l_l_char_57_0.Archivable = true;
+                l_v22838_0 = l_l_char_57_0:Clone();
+                l_v22838_0.PrimaryPart.Anchored = true;
+                for _, v22854 in pairs(l_v22838_0:GetDescendants()) do
+                    if v22854.ClassName:find("Script") then
+                        v22854:Destroy();
+                    end;
+                end;
+                for _, v22856 in l_v22838_0:GetChildren() do
+                    if v22856:IsA("BasePart") then
+                        v22856.Anchored = true;
+                    end;
+                end;
+                for _, v22858 in pairs(l_v22838_0:GetDescendants()) do
+                    if v22858:IsA("Highlight") then
+                        v22858:Destroy("");
+                    end;
+                end;
+                l_v22838_0.Parent = l_Viewport_0.Body;
+                l_v22839_0 = l_v22838_0.Humanoid:LoadAnimation(l_l_UFW_2_0.User);
+                local v22863 = l_l_RunService_1_0.RenderStepped:Connect(function() --[[ Line: 46619 ]]
+                    l_v22826_0.RootPart.CFrame = l_l_RootPart_0_0.CFrame * CFrame.new(0, -3, 0) * CFrame.Angles(0, 3.141592653589793, 0);
+                    v22852.CFrame = l_v22826_0.camera.CFrame;
+                    for _, v22860 in l_v22838_0:GetChildren() do
+                        if v22860:IsA("BasePart") then
+                            local l_l_l_char_57_0_FirstChild_0 = l_l_char_57_0:FindFirstChild(v22860.Name);
+                            if l_l_l_char_57_0_FirstChild_0 then
+                                v22860.CFrame = l_l_l_char_57_0_FirstChild_0.CFrame;
+                            end;
+                        end;
+                    end;
+                    local l_Position_100 = (l_v22838_0.Head.CFrame * CFrame.new(0.2, 0.2, -0.5)).Position;
+                    l_Position_100 = v22852:WorldToScreenPoint(l_Position_100);
+                    v22850.EyeFlash.Position = UDim2.fromScale((l_Position_100.X - 0.5) * l_Viewport_0.AbsoluteSize.Y / l_Viewport_0.AbsoluteSize.X + 0.5, (l_Position_100.Y - 0.5) * l_Viewport_0.AbsoluteSize.X / l_Viewport_0.AbsoluteSize.Y + 0.5);
+                end);
+                task.delay(0.2, function() --[[ Line: 46636 ]]
+                    v22850.Flashup.Viewport.BackgroundColor3 = Color3.new(0, 0, 0);
+                    v22850.Flashup.Viewport.Viewport.ImageColor3 = Color3.fromRGB(20, 20, 20);
+                    l_l_TweenService_58_0:Create(v22850.Flashup.Viewport, TweenInfo.new(1, Enum.EasingStyle.Quad), {
+                        BackgroundColor3 = Color3.new(1, 1, 1)
+                    }):Play();
+                    l_l_TweenService_58_0:Create(v22850.Flashup.Viewport.Viewport, TweenInfo.new(0.8, Enum.EasingStyle.Quad), {
+                        ImageColor3 = Color3.new(1, 1, 1)
+                    }):Play();
+                    v22850.EyeFlash.Visible = true;
+                    l_l_TweenService_58_0:Create(v22850.EyeFlash, TweenInfo.new(0.5, Enum.EasingStyle.Quad), {
+                        Rotation = 90
+                    }):Play();
+                    task.wait(0.2);
+                    v22850.EyeFlash.Visible = false;
+                    task.wait(0.025);
+                    v22850.EyeFlash.Size = UDim2.fromScale(0.2, 0.2);
+                    v22850.EyeFlash.Visible = true;
+                    task.wait(0.025);
+                    v22850.EyeFlash.Visible = false;
+                    task.wait(0.025);
+                    v22850.EyeFlash.Size = UDim2.fromScale(0.25, 0.25);
+                    v22850.EyeFlash.Visible = true;
+                    task.wait(0.05);
+                    v22850.EyeFlash.Visible = false;
+                    task.wait(0.05);
+                    v22850.EyeFlash.Size = UDim2.fromScale(0.1, 0.1);
+                    v22850.EyeFlash.Visible = true;
+                    task.wait(0.05);
+                    v22850.EyeFlash.Visible = false;
+                end);
+                local v22864 = TweenInfo.new(2.5, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out);
+                l_l_TweenService_58_0:Create(v22850.Flashup, v22864, {
+                    Size = UDim2.new(1, 0, 0.3, 0)
+                }):Play();
+                l_l_TweenService_58_0:Create(v22852, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
+                    FieldOfView = 120
+                }):Play();
+                task.wait(2);
+                l_l_TweenService_58_0:Create(v22852, TweenInfo.new(1.7, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
+                    FieldOfView = 70
+                }):Play();
+                l_l_TweenService_58_0:Create(v22850.Flashup, TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {
+                    Size = UDim2.new(1, 0, 1, 0)
+                }):Play();
+                task.wait(1);
+                v22863:Disconnect();
+                task.delay(0.05, function() --[[ Line: 46667 ]]
+                    shared.SetCore(false);
+                    l_v22822_0(v22832, 1, 2, 0.07);
+                    v22832.Frame.Visible = true;
+                    task.wait(0.05);
+                    v22832.Frame.Visible = false;
+                end);
+                l_v22838_0.Parent = workspace;
+                v22850:Destroy();
+                for _, v22866 in l_v22838_0:GetChildren() do
+                    if v22866:IsA("BasePart") and v22866.Name ~= "HumanoidRootPart" then
+                        v22866.Anchored = false;
+                    end;
+                end;
+            end);
+            v22808.Speak(l_char_57, v22811[1]);
+            task.wait(3);
+            v22828.TimePosition = 3;
+            l_RootPart_1.TimePosition = 3;
+            l_v22839_0:Play(0);
+            l_v22839_0.TimePosition = 3;
+            warn("sync");
+            local l_HumanoidRootPart_17 = l_v22838_0.HumanoidRootPart;
+            local v22868 = CFrame.new(math.random(4000, 100000), 0, 0);
+            table.insert(v22810, l_v22838_0);
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable;
+            local l_l_HumanoidRootPart_17_0 = l_HumanoidRootPart_17 --[[ copy: 26 -> 189 ]];
+            local l_v22868_0 = v22868 --[[ copy: 27 -> 190 ]];
+            local l_l_RootPart_1_1 = l_RootPart_1 --[[ copy: 21 -> 191 ]];
+            table.insert(v22810, (l_RunService_1.RenderStepped:Connect(function() --[[ Line: 46701 ]]
+                l_l_HumanoidRootPart_17_0.CFrame = l_v22868_0;
+                if l_v22826_0 and l_v22826_0.Parent then
+                    l_v22826_0.RootPart.CFrame = l_v22868_0 * CFrame.new(0, -3, 0) * CFrame.Angles(0, 3.141592653589793, 0);
+                    local v22872 = math.ceil(l_l_RootPart_1_1.TimePosition * 60);
+                    local l_FirstChild_32 = l_l_UFW_2_0.Camera.FOV:FindFirstChild((tonumber((math.ceil(v22872)))));
+                    workspace.CurrentCamera.CFrame = l_v22826_0.camera.CFrame;
+                    if l_FirstChild_32 then
+                        workspace.CurrentCamera.FieldOfView = l_FirstChild_32.Value;
+                    end;
+                end;
+            end)));
+            local v22874 = l_UFW_2.ImpactFrames:Clone();
+            v22874.Parent = l_LocalPlayer_1.PlayerGui;
+            local v22875 = l_UFW_2.Flexworks:Clone();
+            v22875.Vignette.Visible = true;
+            v22875.Parent = l_LocalPlayer_1.PlayerGui;
+            table.insert(v22810, v22875);
+            table.insert(v22810, v22874);
+            local v22876 = l_UFW_2.CloneArms:Clone();
+            v22876["Right Arm"].Color = l_v22838_0["Right Arm"].Color;
+            v22876["Left Arm"].Color = l_v22838_0["Left Arm"].Color;
+            local v22877 = v22876["Right Arm"]["Right Arm"];
+            local v22878 = v22876["Left Arm"]["Left Arm"];
+            local l_Shirt_0 = l_v22838_0:FindFirstChildWhichIsA("Shirt");
+            if l_Shirt_0 then
+                l_Shirt_0:Clone().Parent = v22876;
+            end;
+            v22876.Parent = l_v22838_0;
+            v22877.Part0 = l_v22838_0["Right Arm"];
+            v22877.Parent = l_v22838_0["Right Arm"];
+            v22878.Part0 = l_v22838_0["Left Arm"];
+            v22878.Parent = l_v22838_0["Left Arm"];
+            table.insert(v22810, v22876);
+            local v22880 = l_UFW_2.BG:Clone();
+            v22880:PivotTo(v22868 * CFrame.Angles(0, 1.5707963267948966, 0));
+            v22880.light2.SpotLight.Brightness = 20;
+            v22880.Parent = workspace;
+            game.Lighting.ClockTime = 22;
+            v22880.Floor.Decal.Transparency = 0.99;
+            v22880.Wall2.Decal.Transparency = 0.99;
+            table.insert(v22810, v22880);
+            local l_ColorCorrectionEffect_3 = Instance.new("ColorCorrectionEffect");
+            l_ColorCorrectionEffect_3.Brightness = -0.15;
+            l_ColorCorrectionEffect_3.Parent = game.Lighting;
+            table.insert(v22810, l_ColorCorrectionEffect_3);
+            local v22882 = {};
+            v22882.__index = v22882;
+            local v22883 = require(game.ReplicatedStorage.library);
+            local l_PlayAttachment_4 = v22883.PlayAttachment;
+            local l_Maid_18 = v22883.Maid;
+            local l_PlayTween_4 = v22883.PlayTween;
+            local _ = v22883.CamShake;
+            local _ = v22883.PlayFlipBook;
+            local l_dtwait_4 = v22883.dtwait;
+            local l_EFP_4 = v22883.EFP;
+            local l_PlayMesh_4 = v22883.PlayMesh;
+            local _ = v22883.Impact;
+            local _ = v22883.GlassLight;
+            local l_RaiseZIndex_4 = v22883.RaiseZIndex;
+            local l_Able_4 = v22883.Able;
+            local l_LifeScale_4 = v22883.LifeScale;
+            local l_QuickFX_4 = v22883.QuickFX;
+            local _ = v22883.QuickWeld;
+            local _ = v22883.Yield;
+            local _ = v22883.ProcessPart;
+            local _ = v22883.WeldObject;
+            local _ = v22883.Bezier;
+            local v22903 = Random.new();
+            local l_vfx_1 = game.ReplicatedStorage.Resources.UFW.vfx;
+            local v22905 = setmetatable({}, v22882);
+            v22905._maid = l_Maid_18.new();
+            local _ = {};
+            local v22907 = false;
+            local function _() --[[ Line: 46785 ]] --[[ Name: Clean ]]
+                if not v22907 then
+                    v22907 = true;
+                    v22905._maid:doCleaning();
+                end;
+            end;
+            task.delay(10, function() --[[ Line: 46792 ]]
+                if not v22907 then
+                    v22907 = true;
+                    v22905._maid:doCleaning();
+                end;
+            end);
+            local l_BG_0 = v22880.BG;
+            local l_l_v22838_0_0 = l_v22838_0;
+            local l_CurrentCamera_32 = game.Workspace.CurrentCamera;
+            local _ = function() --[[ Line: 46801 ]] --[[ Name: GetTorsoCF ]]
+                local _, v22913, _ = l_l_v22838_0_0.HumanoidRootPart.CFrame:ToOrientation();
+                return CFrame.new(l_l_v22838_0_0.Torso.Position) * CFrame.Angles(0, v22913, 0);
+            end;
+            local l_l_TweenService_58_1 = l_TweenService_58 --[[ copy: 10 -> 192 ]];
+            local function v22928() --[[ Line: 46807 ]] --[[ Name: PunchEvent ]]
+                warn("theyung");
+                local v22917 = v22905._maid:give(l_vfx_1["Right Arm"]:Clone());
+                for _, v22919 in pairs(v22917:GetChildren()) do
+                    v22905._maid:give(v22919);
+                    v22919.Parent = l_l_v22838_0_0["Right Arm"];
+                    game.Debris:AddItem(v22919, 0.6);
+                end;
+                local l_Highlight_14 = Instance.new("Highlight");
+                l_Highlight_14.FillTransparency = 1;
+                l_Highlight_14.FillColor = Color3.new(1, 1, 1);
+                l_Highlight_14.OutlineTransparency = 0.5;
+                l_Highlight_14.OutlineColor = Color3.fromRGB(0, 0, 0);
+                l_Highlight_14.Parent = l_l_v22838_0_0["Right Arm"];
+                game.Debris:AddItem(l_Highlight_14, 0.6);
+                local v22921 = v22905._maid:give(l_vfx_1.ArmThing:Clone());
+                local l_Weld_67 = Instance.new("Weld");
+                l_Weld_67.Part0 = v22921.PrimaryPart;
+                l_Weld_67.Part1 = l_l_v22838_0_0["Right Arm"];
+                l_Weld_67.Parent = v22921;
+                l_Weld_67.C0 = CFrame.new(0.8, 0, 0) * CFrame.Angles(0, 0, -1.5707963267948966);
+                v22921.Parent = l_EFP_4;
+                l_l_TweenService_58_1:Create(v22921.PrimaryPart.Mesh, TweenInfo.new(0.5, Enum.EasingStyle.Sine), {
+                    Scale = v22921.End.Mesh.Scale
+                }):Play();
+                l_l_TweenService_58_1:Create(l_Weld_67, TweenInfo.new(0.5, Enum.EasingStyle.Sine), {
+                    C0 = l_Weld_67.C0 * CFrame.new(0, -0.4, 0) * CFrame.Angles(0, 3.141592653589793, 0)
+                }):Play();
+                for _, v22924 in pairs(v22921.PrimaryPart:GetChildren()) do
+                    if v22924:IsA("Decal") then
+                        v22924.Transparency = 0;
+                        l_l_TweenService_58_1:Create(v22924, TweenInfo.new(1, Enum.EasingStyle.Sine), {
+                            Transparency = 1
+                        }):Play();
+                    end;
+                end;
+                task.delay(0.2, function() --[[ Line: 46848 ]]
+                    for _, v22926 in pairs(l_l_v22838_0_0["Right Arm"]:GetChildren()) do
+                        if v22926:IsA("ParticleEmitter") then
+
+                        end;
+                    end;
+                end);
+                task.delay(0.3, function() --[[ Line: 46856 ]]
+                    local v22927 = l_vfx_1.Upwave:Clone();
+                    v22927:ScaleTo(0.1);
+                    l_PlayMesh_4({
+                        Model = v22927, 
+                        Anchor = l_l_v22838_0_0["Right Arm"].CFrame * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 1.5707963267948966), 
+                        Info = TweenInfo.new(0.3, Enum.EasingStyle.Quad)
+                    });
+                end);
+                l_dtwait_4(0.5);
+                v22921:Destroy();
+            end;
+            local function _(v22929) --[[ Line: 46868 ]] --[[ Name: Darkness ]]
+                warn("creppytpyeryeryea");
+                task.spawn(function() --[[ Line: 46870 ]]
+                    if v22929 then
+                        l_l_TweenService_58_1:Create(game.Lighting, TweenInfo.new(1.827, Enum.EasingStyle.Quad), {
+                            Brightness = 0, 
+                            Ambient = Color3.fromRGB(0, 0, 0), 
+                            OutdoorAmbient = Color3.fromRGB(25, 25, 25)
+                        }):Play();
+                        l_l_TweenService_58_1:Create(game.Lighting, TweenInfo.new(0.65, Enum.EasingStyle.Quad), {
+                            ClockTime = 0
+                        }):Play();
+                        return;
+                    else
+                        l_l_TweenService_58_1:Create(game.Lighting, TweenInfo.new(1.827, Enum.EasingStyle.Quad), {
+                            Brightness = 2, 
+                            Ambient = Color3.fromRGB(138, 138, 138), 
+                            OutdoorAmbient = Color3.fromRGB(70, 70, 70)
+                        }):Play();
+                        l_l_TweenService_58_1:Create(game.Lighting, TweenInfo.new(0.65, Enum.EasingStyle.Quad), {
+                            ClockTime = 13
+                        }):Play();
+                        return;
+                    end;
+                end);
+            end;
+            local l_l_UFW_2_1 = l_UFW_2 --[[ copy: 8 -> 193 ]];
+            local function v22944() --[[ Line: 46888 ]] --[[ Name: PunchCloseEvent ]]
+                local function v22937() --[[ Line: 46889 ]] --[[ Name: ImpactFrames ]]
+                    local v22932 = nil;
+                    local v22933 = 1;
+                    v22905.Impact = v22905._maid:give(l_l_UFW_2_1.Impact:Clone());
+                    v22905.Impact.Enabled = false;
+                    v22905.Impact.Parent = game.Players.LocalPlayer.PlayerGui;
+                    local l_Impact_6 = v22905.Impact;
+                    local v22935 = nil;
+                    v22935 = shared.loop(function() --[[ Line: 46899 ]]
+                        local l_l_Impact_6_FirstChild_0 = l_Impact_6:FindFirstChild((tostring(v22933)));
+                        if not l_l_Impact_6_FirstChild_0 then
+                            if l_Impact_6 and l_Impact_6.Parent then
+                                l_Impact_6:Destroy();
+                            end;
+                            if v22932 and v22932.Parent then
+                                v22932:Destroy();
+                            end;
+                            return v22935();
+                        else
+                            v22933 = v22933 + 1;
+                            l_l_Impact_6_FirstChild_0.Size = UDim2.new(1, 0, 1, 0);
+                            if v22932 then
+                                v22932:Destroy();
+                            end;
+                            v22932 = l_l_Impact_6_FirstChild_0;
+                            return;
+                        end;
+                    end, 34);
+                    task.delay(5, function() --[[ Line: 46922 ]]
+                        if v22935 then
+                            return v22935();
+                        else
+                            return;
+                        end;
+                    end);
+                end;
+                local v22938 = v22905._maid:give(l_vfx_1.NextArm:Clone());
+                for _, v22940 in pairs(v22938:GetChildren()) do
+                    v22905._maid:give(v22940);
+                    v22940.Parent = l_l_v22838_0_0["Right Arm"];
+                    game.Debris:AddItem(v22940, 0.6);
+                end;
+                for _, v22942 in pairs(l_l_v22838_0_0["Right Arm"]:GetDescendants()) do
+                    if v22942:IsA("Beam") then
+                        l_l_TweenService_58_1:Create(v22942, TweenInfo.new(0.3, Enum.EasingStyle.Sine), {
+                            TextureSpeed = 0
+                        }):Play();
+                    end;
+                end;
+                v22937();
+                local v22943 = l_QuickFX_4({
+                    FX = l_vfx_1.Break, 
+                    Anchor = l_l_v22838_0_0["Right Arm"].CFrame * CFrame.new(0, -2, 0), 
+                    Maid = v22905._maid
+                });
+                l_LifeScale_4({
+                    FX = v22943, 
+                    Scale = 0.5
+                });
+                l_PlayAttachment_4(v22943);
+            end;
+            local function v22955() --[[ Line: 46952 ]] --[[ Name: WallEvent ]]
+                local v22945 = l_QuickFX_4({
+                    FX = l_vfx_1.FinalCrack, 
+                    Anchor = v22880.KJWallBreak.PrimaryPart.CFrame * CFrame.Angles(1.5707963267948966, 0, 0), 
+                    Maid = v22905._maid
+                });
+                for _, v22947 in pairs(v22945:GetDescendants()) do
+                    if v22947:IsA("Beam") then
+                        l_l_TweenService_58_1:Create(v22947, TweenInfo.new(0.4, Enum.EasingStyle.Sine), {
+                            TextureSpeed = 0
+                        }):Play();
+                    end;
+                end;
+                l_dtwait_4(0.1);
+                (function() --[[ Line: 46963 ]] --[[ Name: ImpactFrames ]]
+                    local v22948 = nil;
+                    local v22949 = 1;
+                    v22905.Impact = v22905._maid:give(l_l_UFW_2_1.Impact3:Clone());
+                    v22905.Impact.Enabled = false;
+                    v22905.Impact.Parent = game.Players.LocalPlayer.PlayerGui;
+                    local l_Impact_7 = v22905.Impact;
+                    local v22951 = nil;
+                    v22951 = shared.loop(function() --[[ Line: 46973 ]]
+                        local l_l_Impact_7_FirstChild_0 = l_Impact_7:FindFirstChild((tostring(v22949)));
+                        if not l_l_Impact_7_FirstChild_0 then
+                            if l_Impact_7 and l_Impact_7.Parent then
+                                l_Impact_7:Destroy();
+                            end;
+                            if v22948 and v22948.Parent then
+                                v22948:Destroy();
+                            end;
+                            return v22951();
+                        else
+                            v22949 = v22949 + 1;
+                            l_l_Impact_7_FirstChild_0.Size = UDim2.new(1, 0, 1, 0);
+                            if v22948 then
+                                v22948:Destroy();
+                            end;
+                            v22948 = l_l_Impact_7_FirstChild_0;
+                            return;
+                        end;
+                    end, 34);
+                    task.delay(5, function() --[[ Line: 46996 ]]
+                        if v22951 then
+                            return v22951();
+                        else
+                            return;
+                        end;
+                    end);
+                end)();
+                v22905.Impact1 = v22905._maid:give(l_l_UFW_2_1:FindFirstChild("1"):Clone());
+                v22905.Impact1.Parent = game.Lighting;
+                l_dtwait_4(0.05);
+                v22905.Impact1:Destroy();
+                v22905.Impact2 = v22905._maid:give(l_l_UFW_2_1:FindFirstChild("2"):Clone());
+                v22905.Impact2.Parent = game.Lighting;
+                l_dtwait_4(0.05);
+                v22905.Impact2:Destroy();
+                l_dtwait_4(0.1);
+                for _, v22954 in pairs(v22945:GetDescendants()) do
+                    if v22954:IsA("Beam") then
+                        l_PlayTween_4(v22954, {
+                            Time = 0.1, 
+                            EasingStyle = "Sine", 
+                            Goal = {
+                                Transparency = NumberSequence.new({
+                                    NumberSequenceKeypoint.new(0, 1), 
+                                    NumberSequenceKeypoint.new(1, 1)
+                                })
+                            }
+                        });
+                        game.Debris:AddItem(v22954, 0.1);
+                    end;
+                end;
+            end;
