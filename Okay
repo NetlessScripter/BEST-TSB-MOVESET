@@ -1,0 +1,63 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local HttpService       = game:GetService("HttpService")
+
+local LEVEL_DATA = "eNqtl21y3CAMhi/keCQkEEx/9Qw5AAfoFXr4ImQvdvbdNp1kJmM2rz7Qg7Etfr1L3bgr9dQ55S495dyZY0gxhKj9jXvpTETdOnfOfqmdeu38m/tMQelzKfjrKRpM4T4R8KkkqXs8SvRfSzL+/3oO/Q6g/BIoZZ2JdCbSfyUqf0n0XxV9BxajLbf9+smykQ85hhKDbuMav21e02GP/7j68C4tbPMaeabhp85rWJnCKbxSuKXwSLaxu1MMHEOaQ4pUKbJI2CRsEqVpJNNIpjnCwyYSnhpDlC8xnz+wPrQ58EERcekol6P4MfzgLdWype1NNtl8luwzjRp4mNTckoElEbmpXU3sGCzLabht3Dw8ecXDKR1qSlDNUK1IFYaqQtWQqgRVgWqBKmTLkC1DtgzZCmQrkK1ANoNsBtkMshlkq5CtQrYK2Rpka5CtQTZ/i0FZsFywDPmYE5YzliEiJ8ayYhlTCqYUTCmYUjClYkrFlIopM6bMmDJjyoIpC6YsmLJgSsOUhikNU1ZMWTFlxZQNUzZM2TBlw29Swq9Swu9SgpSJGcuKZcPvdMKyYLlgGVMKphRMKZhSMaViSsWUGVNmTJkxZcaUBVMWTFkwpWFKw5SGKSumrJiyYsqKKRumbJiy4c8/4e8/4QaADPcQhGXBcsEypBTc4gjuceRFk/Oiy8FtzhvDT8BH16rz+zflIWVvG6OBa+3s4o4GrhE/fD3RagG3PNN7GzubWPa/0ROKd5iDxVub1QM+LVyi4k2nF+zGS97xtbnce9QytRe5qOFsfOs5R/hzy3kR68OzfhDzS5H1qGYbc1a6ZXm2rVrYUP97U2224OOrf4VeqUjmm4rm/bmQXfT2FGRU5r7lS3myooqvY+NHVJF9SOz3eh93lv1+jx8eoBTNkRd3Px/IONj5JGVO4keTaZ01HLmKHLn8B99PDSNuL+qxlsfs4wZHNRFpR+CqYfnXvKfTn8+qz6IfU0Thsar1Xvn4uM1tNo0s/KhceNczo08QtZdV+9jycV17LlonLnzbNYcqDHZN2CzfDxr1cgbzD7A/bBr30veHpniS4l7q6XAulx7F2nMIfSZEWvIVKW2fj4DtKa/K2y62fGqdPqONvjsdXoni1DPXlvLaFbYrOD/6MWbEN/MlsbVRA8HM5lTy0VCkXV5YEmx8rrARX5+yy55ME3o9QIdnfvakvZ2bsNmRt7KXU+zDU1jzTML3x/APnBzzXg=="
+
+local MainLevels = require(ReplicatedStorage.Shared.Info.MainLevels)
+
+for i, v in MainLevels do
+    if v.id == 19 then
+        table.remove(MainLevels, i)
+        break
+    end
+end
+
+local newLevel = {
+    level_name  = "Unnamed 24",
+    difficulty  = "Harder",
+    stars       = 0,
+    id          = 19,
+    isDisplayed = true,
+    level_data  = LEVEL_DATA,
+}
+
+
+table.insert(MainLevels, newLevel)
+
+print("[Inject] ✅ Level 19 'Unnamed 24' injected!")
+print("[Inject] level_data length :", #LEVEL_DATA)
+print("[Inject] Total levels now  :", #MainLevels)
+
+
+local ok, result = pcall(function()
+    local Parser = require(ReplicatedStorage.Shared.Classes.Level.Parser)
+    local settings, objects = Parser:LoadLevelData(LEVEL_DATA)
+    return { settings, objects }
+end)
+
+if ok and type(result) == "table" then
+    local settings, objects = result[1], result[2]
+    print("[Inject] ✅ Parser validation passed!")
+    if objects then
+        print("[Inject] Objects parsed:", #objects)
+    end
+    if settings then
+        print("[Inject] Gamemode:", settings.gamemode or "?")
+        print("[Inject] Speed   :", settings.gameplaySpeed or "?")
+    end
+else
+    warn("[Inject] ⚠ Parser validation failed:", tostring(result))
+    warn("[Inject] Level was injected but may not render correctly.")
+end
+
+
+local success, encoded = pcall(function()
+    return HttpService:JSONEncode(newLevel)
+end)
+if success then
+    setclipboard(encoded)
+    print("[Inject] ✅ Full level JSON copied to clipboard!")
+else
+    setclipboard(LEVEL_DATA)
+    print("[Inject] ✅ Raw level_data string copied to clipboard!")
+end
